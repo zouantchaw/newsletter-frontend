@@ -2,9 +2,8 @@ export default function rootReducer(state = exState, action) {
     switch (action.type) {
         case 'ADD_NEWSLETTER':
             return "Return a state";
-    
         default:
-            return  ;
+            return state;
     }
 }
 
