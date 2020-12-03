@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AudienceList from '../components/AudienceList';
 import AudienceForm from '../components/AudienceForm';
-import { fetchAudience, addAudience } from '../actions/rootActions'
+import SocialLinks from '../components/SocialLinks';
+// import SocialForm from '../components/SocialForm';
+
+import { fetchAudience, addAudience, fetchSocials } from '../actions/rootActions'
 
 class SettingsContainer extends Component {
 
     componentDidMount(){
         this.props.fetchAudience()
+        this.props.fetchSocials()
     }
 
     render() {
@@ -16,6 +20,9 @@ class SettingsContainer extends Component {
                 <h3>Settings</h3>
                 <AudienceList audience={this.props.audience}/>
                 <AudienceForm addAudience={this.props.addAudience}/>
+                <h4>Social Links</h4>
+                <SocialLinks social={this.props.social}/>
+
             </div>
         );
     }
@@ -23,9 +30,10 @@ class SettingsContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        audience: state.audience
+        audience: state.audience,
+        social: state.socials[0]
     }
 }
 
 
-export default connect(mapStateToProps, {fetchAudience, addAudience})(SettingsContainer);
+export default connect(mapStateToProps, {fetchAudience, addAudience, fetchSocials})(SettingsContainer);

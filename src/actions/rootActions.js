@@ -27,3 +27,12 @@ export const addAudience = (audience) => {
         .then(audience => dispatch({type: 'ADD_AUDIENCE', audience}))
     }
 }
+
+export const fetchSocials = () => {
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_SOCIALS' })
+        fetch(`${url}/socials`)
+        .then(resp => resp.json())
+        .then(social => dispatch({type: 'SOCIALS_LOADED', social}))
+    }
+}

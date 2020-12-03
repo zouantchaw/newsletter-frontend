@@ -9,6 +9,12 @@ export default function rootReducer(state = {newsletters: [], audience: [], soci
             return {...state, audience:[ ...state.audience], loading: true}
         case 'ADD_AUDIENCE':
             return {...state, audience: [...state.audience, action.audience], loading: false}
+
+        //Socials
+        case 'LOADING_SOCIALS':
+            return {...state, socials: [...state.socials], loading: true}
+        case 'SOCIALS_LOADED':
+            return {...state, socials: [...action.social]}
         default:
             return state;
     }
