@@ -20,7 +20,6 @@ class SettingsContainer extends Component {
                 <h3>Settings</h3>
                 <AudienceList audience={this.props.audience}/>
                 <AudienceForm addAudience={this.props.addAudience}/>
-                <h4>Social Links</h4>
                 <SocialLinks social={this.props.social}/>
 
             </div>
