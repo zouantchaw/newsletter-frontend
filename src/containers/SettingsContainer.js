@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AudienceList from '../components/AudienceList';
 import AudienceForm from '../components/AudienceForm';
+import { fetchAudience } from '../actions/rootActions'
 
 class SettingsContainer extends Component {
 
     componentDidMount(){
-        // when the container mounts, I want to communicate with the api ang e
-        
+        this.props.fetchAudience()
     }
 
     render() {
         return (
             <div>
-                <AudienceList audience={this.props.audience}/>
+                <AudienceList />
                 <AudienceForm />
             </div>
         );
@@ -27,11 +27,5 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        addFan: () => dispatch({ type: "ADD_FAN"}),
-        addSocials: () => dispatch({ type: "ADD_SOCIALS"})
-    };
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer);
+export default connect(mapStateToProps, {fetchAudience})(SettingsContainer);

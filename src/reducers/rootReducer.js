@@ -1,9 +1,12 @@
-export default function rootReducer(state = [], action) {
+export default function rootReducer(state = {newsletters: [], audience: [], socials: [], loading: false}, action) {
+    debugger
     switch (action.type) {
-        case 'ADD_NEWSLETTER':
-            return "Return a state";
-        case 'ADD_FAN':
-            return "Added";
+        case 'LOADING_AUDIENCE':
+            return {...state, audience: [...state.audience], loading: true};
+        case 'AUDIENCE_LOADED':
+            return {...state, audience: [...state.audience], loading: false};
+        case 'test':
+        return 'update state with audience'
         default:
             return state;
     }
