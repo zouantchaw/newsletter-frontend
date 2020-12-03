@@ -11,9 +11,12 @@ class SettingsContainer extends Component {
         );
     }
 }
-function mapStateToProps(state) {
-    return {
 
+function mapStateToProps(state) {
+    debugger
+    return {
+        audience: state.emails,
+        social_links: state.socials
     };
 }
 
