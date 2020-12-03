@@ -1,11 +1,14 @@
 export default function rootReducer(state = {newsletters: [], audience: [], socials: [], loading: false}, action) {
     switch (action.type) {
+        // Audience 
         case 'LOADING_AUDIENCE':
             return {...state, audience: [...state.audience], loading: true};
         case 'AUDIENCE_LOADED':
             return {...state, audience: [...action.audience], loading: false};
-        case 'test':
-        return 'update state with audience'
+        case 'ADD_AUDIENCE_STARTED':
+            return {...state, audience:[ ...state.audience], loading: true}
+        case 'ADD_AUDIENCE':
+            return {...state, audience: [...state.audience, action.audience], loading: false}
         default:
             return state;
     }

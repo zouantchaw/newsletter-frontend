@@ -6,9 +6,24 @@ export const fetchAudience = () => {
         fetch(`${url}/audeinces`)
         .then(resp => resp.json())
         .then(audience => dispatch({type: 'AUDIENCE_LOADED', audience}))
-        // .then(x => {
-        //     debugger
-        //     dispatch({type: 'AUDIENCE_LOADED', x})
-        // })
+    }
+}
+
+export const addAudience = (audience) => {
+    return (dispatch) => {
+        dispatch( {type: "ADD_AUDIENCE_STARTED" })
+        
+        let configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(audience)
+        };
+
+        fetch(`${url}/audeinces`, configObj)
+        .then(resp => resp.json())
+        .then(audience => dispatch({type: 'ADD_AUDIENCE', audience}))
     }
 }

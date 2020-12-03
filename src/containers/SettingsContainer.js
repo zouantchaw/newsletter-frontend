@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AudienceList from '../components/AudienceList';
 import AudienceForm from '../components/AudienceForm';
-import { fetchAudience } from '../actions/rootActions'
+import { fetchAudience, addAudience } from '../actions/rootActions'
 
 class SettingsContainer extends Component {
 
@@ -15,7 +15,7 @@ class SettingsContainer extends Component {
             <div>
                 <h3>Settings</h3>
                 <AudienceList audience={this.props.audience}/>
-                <AudienceForm />
+                <AudienceForm addAudience={this.props.addAudience}/>
             </div>
         );
     }
@@ -28,4 +28,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {fetchAudience})(SettingsContainer);
+export default connect(mapStateToProps, {fetchAudience, addAudience})(SettingsContainer);
