@@ -13,18 +13,18 @@ class SettingsContainer extends Component {
     render() {
         return (
             <div>
-                <AudienceList />
+                <h3>Settings</h3>
+                <AudienceList audience={this.props.audience}/>
                 <AudienceForm />
             </div>
         );
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {
-        audience: 'Test',
-        social_links: 'Test Test'
-    };
+        audience: state.audience
+    }
 }
 
 
